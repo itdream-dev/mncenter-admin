@@ -108,7 +108,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <!-- <tr>
                       <td>15125125</td>
                       <td>Sales</td>
                       <td>ALQO (XLQ)</td>
@@ -143,7 +143,7 @@
                       <td>5</td>
                       <td>500</td>
                       <td>2018-08-18</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
@@ -167,7 +167,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
+                    <!-- <tr>
                       <td>1</td>
                       <td>Mark</td>
                       <td>105</td>
@@ -184,7 +184,7 @@
                       <td>Larry</td>
                       <td>70</td>
                       <td>9,125$</td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
