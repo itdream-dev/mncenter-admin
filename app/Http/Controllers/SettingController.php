@@ -88,9 +88,46 @@ class SettingController extends Controller
 
         foreach ($coins as $coin){
           $code = Paymentsetting::firstOrCreate(["name" => $coin['coin_name']]);
+
+          Log::info($coin['coin_name']);
+          Log::info($request->get($coin['coin_name']));
           $code->value = $request->get($coin['coin_name']);
           $code->save();
         }
+
+        return back()->with('success',"Settings have been successfully saved.");
+        //return Redirect::route('admin.setting');
+    }
+
+    public function postGeneralSetting(Request $request)
+    {
+        $code = Generalsetting::firstOrCreate(["name" => "contact_email"]);
+        $code->value = $request->get('contact_email');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "facebook"]);
+        $code->value = $request->get('facebook');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "twitter"]);
+        $code->value = $request->get('twitter');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "discord"]);
+        $code->value = $request->get('discord');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "reddit"]);
+        $code->value = $request->get('reddit');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "lang"]);
+        $code->value = $request->get('lang');
+        $code->save();
+
+        $code = Generalsetting::firstOrCreate(["name" => "etherem_balance_status"]);
+        $code->value = $request->get('etherem_balance_status');
+        $code->save();
 
         return back()->with('success',"Settings have been successfully saved.");
         //return Redirect::route('admin.setting');
