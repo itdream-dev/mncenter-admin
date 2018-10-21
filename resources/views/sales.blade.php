@@ -35,7 +35,7 @@
                             <td>{{$sale->id}}</td>
                             <td>{{$sale->user->name}}</td>
                             <td>{{$sale->masternode->id}}</td>
-                            <td>{{$sale->saled_seats_count}}</td>
+                            <td>{{$sale->sales_amount}}</td>
                             <td>{{$sale->total_price}}</td>
                             <td>{{$sale->status}}</td>
                             <td class="actions">
