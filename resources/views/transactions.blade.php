@@ -27,7 +27,7 @@
                         <th>Amount</th>
                         <th>From</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                     </thead>
                     <tbody>
@@ -40,9 +40,9 @@
                             <td>{{$item->from_address}}</td>
                             <td>{{$item->amount}}</td>
                             <td>{{$item->status}}</td>
-                            <td class="actions">
+                            <!-- <td class="actions">
                                 <a href="/transactions/{{$item->id}}" class="on-default edit-row"><i class="fa fa-eye"></i></a>
-                            </td>
+                            </td> -->
                         </tr>
                     @endforeach
                     </tbody>

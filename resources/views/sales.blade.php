@@ -26,7 +26,7 @@
                         <th>Seats Count</th>
                         <th>Total Price</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                     </thead>
                     <tbody>
@@ -38,9 +38,9 @@
                             <td>{{$sale->sales_amount}}</td>
                             <td>{{$sale->total_price}}</td>
                             <td>{{$sale->status}}</td>
-                            <td class="actions">
+                            <!-- <td class="actions">
                                 <a href="/sales/{{$sale->id}}" class="on-default edit-row"><i class="fa fa-eye"></i></a>
-                            </td>
+                            </td> -->
                         </tr>
                     @endforeach
                     </tbody>
