@@ -20,8 +20,13 @@
     <form class="form-horizontal form-bordered" method="get" style="margin-top:10px">
       <div class="form-group">
         <label class="col-md-3 control-label" for="inputDefault" style="font-size:20px">Smart Contract Address:</label>
-        <a href="https://ropsten.etherscan.io/address/{{$contract->contract_address}}" class="col-md-9
+        @if ($contract->net_type == 'TestNet')
+        <a href="https://kovan.etherscan.io/address/{{$contract->contract_address}}" class="col-md-9
          control-label" id="inputDefault" style="text-align:left;font-size:20px">{{$contract->contract_address}} (click it to go by Etherscan)</a>
+        @else
+        <a href="https://etherscan.io/address/{{$contract->contract_address}}" class="col-md-9
+         control-label" id="inputDefault" style="text-align:left;font-size:20px">{{$contract->contract_address}} (click it to go by Etherscan)</a>
+        @endif
       </div>
     </form>
     @endforeach
