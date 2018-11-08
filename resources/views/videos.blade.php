@@ -52,7 +52,7 @@
                             <td>{{$video->description}}</td>
                             <td>{{$video->link}}</td>
                             <td class="actions">
-                                <a href="/videos/{{$video->id}}" class="on-default edit-row"><i class="fa fa-eye"></i></a>
+                                <a href="/videos/{{$video->id}}" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
                     @endforeach

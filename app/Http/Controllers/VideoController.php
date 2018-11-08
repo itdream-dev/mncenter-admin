@@ -62,9 +62,9 @@ class VideoController extends Controller
     $video=[];
     if($request->input('id') != '') {
       $video = Video::findOrNew($request->input('id'));
-      $video->title = $video->input('title');
-      $video->description = $video->input('description');
-      $video->type = $video->input('type');
+      $video->title = $request->input('title');
+      $video->description = $request->input('description');
+      $video->type = $request->input('type');
       $video->link = $request->input('link');
       $video->save();
     } else {
