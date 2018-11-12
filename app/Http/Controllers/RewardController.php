@@ -31,7 +31,10 @@ class RewardController extends Controller
   public function rewards(Request $request)
   {
     $rewards = Reward::paginate(50);
-
+    foreach ($rewards as $reward){
+      $referred_by = User::where('id', $reward->referral_id)->first();
+      $reward->referred_by = $referred_by;
+    }
     return view('rewards', [
       'rewards' => $rewards
     ]);

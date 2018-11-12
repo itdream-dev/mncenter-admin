@@ -35,7 +35,18 @@ class MasternodeController extends Controller
     $query = '';
 
     $masternodes = Masternode::where('id', 'like', '%'.$query.'%')->paginate(50);
-
+    foreach ($masternodes as $masternode){
+      $seat_price = $masternode->coin->seat_price;
+      $total_seats = $masternode->coin->masternode_amount / $seat_price;
+      $masternode->total_seats = $total_seats;
+      $sales = Sale::where('status', 'completed')->where('masternode_id', $masternode->id)->get();
+      $sales_seats = 0;
+      foreach ($sales as $sale){
+        $seats_count = $sale->total_price / $masternode->coin->seat_price;
+        $sales_seats =+ $sale->sales_amount;
+      }
+      $masternode->empty_seats = $total_seats - $sales_seats;
+    }
     return view('masternodes', [
       'masternodes' => $masternodes,
       'search' => $query,
@@ -71,6 +82,10 @@ class MasternodeController extends Controller
       $masternode->total_seats = $request->input('total_seats');
       $masternode->empty_seats = $request->input('empty_seats');
       $masternode->seat_amount = $request->input('seat_amount');
+      $masternode->rcp_user = $request->input('rcp_user');
+      $masternode->rpc_password = $request->input('rpc_password');
+      $masternode->rpc_ip = $request->input('rpc_ip');
+      $masternode->rpc_port = $request->input('rpc_port');
       $masternode->save();
     } else {
       $masternode = Masternode::create([
@@ -80,6 +95,10 @@ class MasternodeController extends Controller
         'total_seats' => $request->input('total_seats'),
         'empty_seats' => $request->input('empty_seats'),
         'seat_amount' => $request->input('seat_amount'),
+        'rpc_ip' => $request->input('seat_amount'),
+        'rpc_port' => $request->input('rpc_port'),
+        'rpc_password' => $request->input('rpc_password'),
+        'rcp_user' => $request->input('rcp_user'),
       ]);
     }
     return redirect()->to('masternodes');

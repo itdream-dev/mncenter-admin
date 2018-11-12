@@ -86,6 +86,34 @@
 							</div>
 
 							<div class="form-group">
+								<label class="col-md-3 control-label label-left" for="seat_amount">Rpc IP</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="rpc_ip" name="rpc_ip" value="{{$masternode['rpc_ip']}}"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label label-left" for="rpc_port">Rpc Port</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="rpc_port" name="rpc_port" value="{{$masternode['rpc_port']}}"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label label-left" for="rpc_username">Rpc UserName</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="rpc_username" name="rpc_username" value="{{$masternode['rpc_username']}}"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label label-left" for="rpc_password">Rpc Password</label>
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="rpc_password" name="rpc_password" value="{{$masternode['rpc_password']}}"/>
+								</div>
+							</div>
+
+							<div class="form-group">
 								<label class="col-md-3 control-label label-left" for="save"></label>
 								<div class="col-md-6">
 									<button type="submit" class="btn btn-primary" style="width:120px">Save</button>

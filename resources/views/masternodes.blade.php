@@ -53,8 +53,8 @@
                             <td>@if ($masternode->coin) {{$masternode->coin->coin_name}} @endif</td>
                             <td>{{$masternode->status}}</td>
                             <td>{{$masternode->total_seats}}</td>
-                            <td>{{$masternode->empty_seats}}</td>
-                            <td>{{$masternode->seat_amount}} @if ($masternode->coin) {{$masternode->coin->coin_symbol}} @endif</td>
+                            <td>{{$masternode->empty_seats}} ({{intval(100 * $masternode->empty_seats / $masternode->total_seats)}}%)</td>
+                            <td>@if ($masternode->coin) {{$masternode->coin->seat_price}} {{$masternode->coin->coin_symbol}} @endif</td>
                             <td class="actions">
                                 <a href="/masternodes/{{$masternode->id}}" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 <a href="#" class="on-default remove-row" onclick="removeUser({{$masternode->id}})"><i class="fa fa-trash-o"></i></a>

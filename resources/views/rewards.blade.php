@@ -21,25 +21,39 @@
                 <table class="table table-bordered table-striped mb-none" id="datatable-editable">
                     <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>User</th>
+                        <th>Reward ID</th>
+                        <th>To</th>
+                        <th>Reward Type</th>
                         <th>Reward Amount</th>
                         <th>Masternode ID</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th>Reward Date</th>
+                        <!-- <th>Actions</th> -->
                     </tr>
                     </thead>
                     <tbody>
                     @foreach ($rewards as $reward)
                         <tr id="{{$reward->id}}">
                             <td>{{$reward->id}}</td>
-                            <td>{{$reward->user->name}}</td>
-                            <td>{{$reward->reward_amount}}</td>
-                            <td>{{$reward->masternode->name}}</td>
-                            <td>{{$reward->status}}</td>
-                            <td class="actions">
-                                <a href="/rewards/{{$reward->id}}" class="on-default edit-row"><i class="fa fa-eye"></i></a>
+                            <td>
+                              @if ($reward->type == 'to_platform')
+                                Platfrom
+                              @endif
+                              @if ($reward->type == 'to_referral')
+                                {{$reward->referred_by->name}} {{$reward->referred_by->email}}
+                              @endif
+                              @if ($reward->type == 'to_user')
+                                {{$reward->user->name}} {{$reward->user->email}}
+                              @endif
                             </td>
+                            <td>{{$reward->type}}</td>
+                            <td>{{$reward->reward_amount}}</td>
+                            <td>{{$reward->masternode->id}}</td>
+                            <td>{{$reward->status}}</td>
+                            <td>{{$reward->created_at}}</td>
+                            <!-- <td class="actions">
+                                <a href="/rewards/{{$reward->id}}" class="on-default edit-row"><i class="fa fa-eye"></i></a>
+                            </td> -->
                         </tr>
                     @endforeach
                     </tbody>
