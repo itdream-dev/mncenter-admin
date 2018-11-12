@@ -78,7 +78,7 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<div class="form-group" style="display:none">
 								<label class="col-md-3 control-label label-left" for="seat_amount">Seat Amount</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="seat_amount" name="seat_amount" value="{{$masternode['seat_amount']}}"/>
