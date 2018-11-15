@@ -22,6 +22,7 @@
                     <tr>
                         <th>ID</th>
                         <th>User</th>
+                        <th>Coin</th>
                         <th>MasterNode ID</th>
                         <th>Seats Count</th>
                         <th>Total Price</th>
@@ -34,6 +35,7 @@
                         <tr id="{{$sale->id}}">
                             <td>{{$sale->id}}</td>
                             <td>{{$sale->user->name}}</td>
+                            <td>{{$sale->masternode->coin->coin_name}}</td>
                             <td>{{$sale->masternode->id}}</td>
                             <td>{{$sale->sales_amount}}</td>
                             <td>{{$sale->total_price}}</td>
