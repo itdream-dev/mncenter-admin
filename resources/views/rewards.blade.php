@@ -40,7 +40,7 @@
                                 Platfrom
                               @endif
                               @if ($reward->type == 'to_referral')
-                                {{$reward->referred_by->name}} {{$reward->referred_by->email}}
+                                {{$reward->referred_by->name}} ({{$reward->referred_by->email}})
                               @endif
                               @if ($reward->type == 'to_user')
                                 {{$reward->user->name}} {{$reward->user->email}}

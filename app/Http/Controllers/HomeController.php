@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Sale;
 use App\Reward;
 use App\Paymentsetting;
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -33,10 +34,12 @@ class HomeController extends Controller
         for($i = 0; $i < count($codeList); $i++) {
           $payment_settings[$codeList[$i]["name"]] = $codeList[$i]["value"];
         }
+
+        $date = Carbon::parse('this sunday')->toDateTimeString();
         return view('home', [
           'sales' => $sales,
           'rewards' => $rewards,
-          'next_reward_time' => $payment_settings['reward_date']
+          'next_reward_time' => $date
         ]);
     }
 }
