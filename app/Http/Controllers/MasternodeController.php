@@ -43,8 +43,7 @@ class MasternodeController extends Controller
       $sales = Sale::where('status', 'completed')->where('masternode_id', $masternode->id)->get();
       $sales_seats = 0;
       foreach ($sales as $sale){
-        $seats_count = $sale->total_price / $masternode->coin->seat_price;
-        $sales_seats =+ $sale->sales_amount;
+        $sales_seats = $sales_seats + $sale->sales_amount;
       }
       $masternode->empty_seats = $total_seats - $sales_seats;
     }
