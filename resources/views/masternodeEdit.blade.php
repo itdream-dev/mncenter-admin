@@ -63,15 +63,15 @@
 								</div>
 							</div>
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-md-3 control-label label-left" for="total_seats">Total Seats Count</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="total_seats" name="total_seats" value="{{$masternode['total_seats']}}"/>
 								</div>
-							</div>
+							</div> -->
 
 
-							<div class="form-group">
+							<!-- <div class="form-group">
 								<label class="col-md-3 control-label label-left" for="empty_seats">Empty Seats</label>
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="empty_seats" name="empty_seats" value="{{$masternode['empty_seats']}}"/>
@@ -83,7 +83,7 @@
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="seat_amount" name="seat_amount" value="{{$masternode['seat_amount']}}"/>
 								</div>
-							</div>
+							</div> -->
 
 							<div class="form-group">
 								<label class="col-md-3 control-label label-left" for="seat_amount">Rpc IP</label>
@@ -102,7 +102,7 @@
 							<div class="form-group">
 								<label class="col-md-3 control-label label-left" for="rpc_username">Rpc UserName</label>
 								<div class="col-md-6">
-									<input type="text" class="form-control" id="rpc_username" name="rpc_username" value="{{$masternode['rpc_username']}}"/>
+									<input type="text" class="form-control" id="rpc_user" name="rpc_user" value="{{$masternode['rpc_user']}}"/>
 								</div>
 							</div>
 

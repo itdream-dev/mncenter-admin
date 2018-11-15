@@ -23,13 +23,13 @@
                 </div>
                 <div class="widget-summary-col">
                   <div class="summary">
-                    <h4 class="title">Total Profit</h4>
+                    <h4 class="title">Total Sale Count</h4>
                     <div class="info">
-                      <strong class="amount">$ 0.00</strong>
+                      <strong class="amount">{{count($sales)}}</strong>
                     </div>
                   </div>
                   <div class="summary-footer">
-                    <a class="text-muted text-uppercase">(withdraw)</a>
+                    <a class="text-muted text-uppercase"></a>
                   </div>
                 </div>
               </div>
@@ -47,13 +47,13 @@
                 </div>
                 <div class="widget-summary-col">
                   <div class="summary">
-                    <h4 class="title">Total Rewards</h4>
+                    <h4 class="title">Total Rewards Count</h4>
                     <div class="info">
-                      <strong class="amount">$ 0.00</strong>
+                      <strong class="amount">{{count($rewards)}}</strong>
                     </div>
                   </div>
                   <div class="summary-footer">
-                    <a class="text-muted text-uppercase">(withdraw)</a>
+                    <a class="text-muted text-uppercase"></a>
                   </div>
                 </div>
               </div>
@@ -71,13 +71,13 @@
                 </div>
                 <div class="widget-summary-col">
                   <div class="summary">
-                    <h4 class="title">Today's Orders</h4>
+                    <h4 class="title">Next Reward Time</h4>
                     <div class="info">
-                      <strong class="amount">0</strong>
+                      <strong class="amount">{{$next_reward_time}}</strong>
                     </div>
                   </div>
                   <div class="summary-footer">
-                    <a class="text-muted text-uppercase">(statement)</a>
+                    <a class="text-muted text-uppercase"></a>
                   </div>
                 </div>
               </div>
