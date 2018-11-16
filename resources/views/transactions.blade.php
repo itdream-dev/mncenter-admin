@@ -35,7 +35,7 @@
                         <tr id="{{$item->id}}">
                             <td>{{$item->id}}</td>
                             <td>{{$item->type}}</td>
-                            <td>{{$item->user->name}}</td>
+                            <td>@if (isset($item->user->name)) {{$item->user->name}} @endif</td>
                             <td>{{$item->amount}}</td>
                             <td>{{$item->from_address}}</td>
                             <td>{{$item->amount}}</td>
