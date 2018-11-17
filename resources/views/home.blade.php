@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <section role="main" class="content-body">
   <header class="page-header">
     <h2>Dashboard </h2>

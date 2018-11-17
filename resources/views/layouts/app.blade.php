@@ -62,6 +62,13 @@
 	@endif
 	@endif
 </head>
+<style>
+@media only screen and (max-width: 600px) {
+  .ether_unit, .btc_unit {
+    display: none;
+  }
+}
+</style>
 <body>
 	<section class="body">
 
