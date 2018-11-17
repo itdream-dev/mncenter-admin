@@ -64,9 +64,15 @@
 </head>
 <style>
 @media only screen and (max-width: 600px) {
-  .ether_unit, .btc_unit {
-    display: none;
+  .ether_unit{
+    font-size: 11px !important;
+		padding-left:50px
   }
+	.btc_unit {
+		font-size: 11px !important;
+		left:60% !important;
+		margin-left:0px !important;
+	}
 }
 </style>
 <body>
