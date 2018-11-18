@@ -34,7 +34,7 @@
                     @foreach ($sales as $sale)
                         <tr id="{{$sale->id}}">
                             <td>{{$sale->id}}</td>
-                            <td>{{$sale->user->name}}</td>
+                            <td>@if (isset($sale->user)) {{$sale->user->name}} @endif</td>
                             <td>{{$sale->masternode->coin->coin_name}}</td>
                             <td>{{$sale->masternode->id}}</td>
                             <td>{{$sale->sales_amount}}</td>
