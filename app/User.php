@@ -36,4 +36,9 @@ class User extends Authenticatable
     {
       return $this->hasMany('App\Sale');
     }
+
+    public function passwordSecurity()
+    {
+        return $this->hasOne('App\PasswordSecurity');
+    }
 }

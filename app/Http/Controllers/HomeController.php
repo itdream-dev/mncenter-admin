@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function __construct()
     {
         date_default_timezone_set('UTC');
-        $this->middleware('auth');
+        $this->middleware(['auth', '2fa'] );
     }
 
     /**

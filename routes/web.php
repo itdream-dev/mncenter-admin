@@ -69,3 +69,17 @@ Route::get('/smart_contract', 'ContractController@contract')->name('contract');
 
 Route::get('/referrals', 'ReferralController@referrals')->name('referrals');
 Route::delete('/referrals/{id}', ['uses' => 'ReferralController@destroy']);
+
+
+Route::get('/2fa','PasswordSecurityController@show2faForm');
+Route::post('/generate2faSecret','PasswordSecurityController@generate2faSecret')->name('generate2faSecret');
+Route::post('/2fa','PasswordSecurityController@enable2fa')->name('enable2fa');
+Route::post('/disable2fa','PasswordSecurityController@disable2fa')->name('disable2fa');
+
+Route::get('/2faVerify', function(){
+return redirect('/');
+});
+
+Route::post('/2faVerify', function () {
+return redirect(URL()->previous());
+})->name('2faVerify')->middleware('2fa');

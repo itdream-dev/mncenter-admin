@@ -112,10 +112,10 @@
 							<li class="divider"></li>
 							<!-- <li>
 								<a role="menuitem" tabindex="-1" href="pages-user-profile.html"><i class="fa fa-user"></i> My Profile</a>
-							</li>
-							<li>
-								<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
 							</li> -->
+							<li>
+								<a role="menuitem" tabindex="-1" href="/2fa"><i class="fa fa-lock"></i> 2FA Setting</a>
+							</li>
 							<li>
 								<a role="menuitem" tabindex="-1" href="{{ route('logout') }}" onclick="event.preventDefault();console.log('logout');
 								document.getElementById('logout-form').submit();">
