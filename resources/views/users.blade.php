@@ -54,6 +54,7 @@
                             <td class="actions">
                                 <a href="/users/{{$user->id}}" class="on-default edit-row"><i class="fa fa-pencil"></i></a>
                                 <a href="#" class="on-default remove-row" onclick="removeUser({{$user->id}})"><i class="fa fa-trash-o"></i></a>
+                                <a href="#" class="on-default remove-row" onclick="reset2FA({{$user->id}})">Reset 2FA</a>
                             </td>
                         </tr>
                     @endforeach
@@ -78,6 +79,22 @@
             })
           }
         }
+
+        function reset2FA(id) {
+          res = confirm("Do you really want to reset 2FA for this user?");
+          if (res){
+            $.ajax({
+              url:'/users/' + id,
+              type:'post'
+            }).then(function(ret){
+                console.log(ret);
+                alert('Successfully Reset 2fa for the user!')
+            }, function(err){
+                console.log(err);
+            })
+          }
+        }
+
         $(document).ready(function(){
           jQuery.get('https://api.coinmarketcap.com/v1/ticker/ethereum/', function(data, status){
             $('.ether_unit').html('1ETH = $' + parseFloat(data[0].price_usd).toFixed(2));

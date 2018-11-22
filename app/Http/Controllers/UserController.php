@@ -109,4 +109,13 @@ class UserController extends Controller
     $ret = array("result"=>"ok");
     return json_encode($ret);
   }
+
+  public function reset2FA(Request $request, $id){
+    $user = User::findOrNew($id);
+    if (isset($user->passwordSecurity->backup_code)){
+        $user->passwordSecurity->delete();
+    }
+    $ret = array("result"=>"ok");
+    return json_encode($ret);
+  }
 }

@@ -24,6 +24,7 @@ Route::get('/users/new', ['as' => 'admin.user.new', 'uses' => 'UserController@ne
 Route::get('/users', ['as' => 'admin.users', 'uses' => 'UserController@users']);
 Route::get('/users/{id}', ['as' => 'admin.userEdit', 'uses' => 'UserController@editUser']);
 Route::delete('/users/{id}', ['uses' => 'UserController@destroy']);
+Route::post('/users/{id}', ['uses' => 'UserController@reset2FA']);
 Route::post('/user', ['as' => 'admin.users', 'uses' => 'UserController@postEdit']);
 
 Route::get('/masternodes/new', ['as' => 'admin.masternode.new', 'uses' => 'MasternodeController@newMasternode']);
