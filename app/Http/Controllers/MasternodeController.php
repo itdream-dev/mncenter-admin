@@ -80,9 +80,14 @@ class MasternodeController extends Controller
       $masternode->name = $request->input('name');
       $masternode->status = $request->input('status');
       $masternode->coin_id = $request->input('coin_id');
-      $masternode->total_seats = $request->input('total_seats');
-      $masternode->empty_seats = $request->input('empty_seats');
-      $masternode->seat_amount = $request->input('seat_amount');
+      $coin = Coin::where('id', $request->input('coin_id'))->first();
+
+      $coin = Coin::where('id', $request->input('coin_id'))->first();
+      if ($coin){
+        $masternode->total_seats = $coin->masternode_amount / $coin->seat_price;
+        $masternode->save();
+      }
+
       $masternode->rpc_user = $request->input('rpc_user');
       $masternode->rpc_password = $request->input('rpc_password');
       $masternode->rpc_ip = $request->input('rpc_ip');
@@ -106,7 +111,16 @@ class MasternodeController extends Controller
         'rpc_port' => $request->input('rpc_port'),
         'rpc_password' => $request->input('rpc_password'),
         'rpc_user' => $request->input('rpc_user'),
+        'seat_amount' => 0,
       ]);
+
+      $coin = Coin::where('id', $request->input('coin_id'))->first();
+      if ($coin){
+        $masternode->total_seats = $coin->masternode_amount / $coin->seat_price;
+        $masternode->empty_seats = $masternode->total_seats;
+        $masternode->save();
+      }
+
       if ($request->input('status') == "Completed"){
         $client = new jsonRPCClient('http://'.$masternode->rpc_user.':'.$masternode->rpc_password.'@'.$masternode->rpc_ip.':'.$masternode->rpc_port.'/');
         $address = $client->getaccountaddress("");
