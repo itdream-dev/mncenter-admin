@@ -85,6 +85,15 @@ class MasternodeController extends Controller
       $coin = Coin::where('id', $request->input('coin_id'))->first();
       if ($coin){
         $masternode->total_seats = $coin->masternode_amount / $coin->seat_price;
+
+        if ($masternode->empty_seats == NULL){
+          $masternode->empty_seats = $masternode->total_seats;
+        }
+
+        if ($masternode->seat_amount == NULL){
+          $masternode->seat_amount = 0;
+        }
+        
         $masternode->save();
       }
 
