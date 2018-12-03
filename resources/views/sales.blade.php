@@ -35,8 +35,8 @@
                         <tr id="{{$sale->id}}">
                             <td>{{$sale->id}}</td>
                             <td>@if (isset($sale->user)) {{$sale->user->name}} @endif</td>
-                            <td>{{$sale->masternode->coin->coin_name}}</td>
-                            <td>{{$sale->masternode->id}}</td>
+                            <td>@if (isset($sale->masternode->coin->coin_name)) {{$sale->masternode->coin->coin_name}} @endif</td>
+                            <td>@if (isset($sale->masternode->id)) {{$sale->masternode->id}} @endif</td>
                             <td>{{$sale->sales_amount}}</td>
                             <td>{{$sale->total_price}}</td>
                             <td>{{$sale->status}}</td>
