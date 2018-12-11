@@ -110,11 +110,11 @@
                   <tbody>
                     @foreach ($sales as $sale)
                       <tr>
+                        <td>{{$sale->id}}</td>
                         <td>@if (isset($sale->user->name)) {{$sale->user->name}} @endif</td>
                         <td>@if (isset($sale->coin->coin_name)) {{$sale->coin->coin_name}} @endif</td>
                         <td>{{$sale->sales_amount}}</td>
                         <td>{{$sale->total_price}}</td>
-                        <td>{{$sale->sales_amount}}</td>
                         <td>{{$sale->created_at}}</td>
                       </tr>
                     @endforeach
