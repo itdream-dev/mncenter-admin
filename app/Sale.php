@@ -15,13 +15,18 @@ use App\Word;
 
 class Sale extends Model
 {
-	protected $fillable = ['user_id', 'masternode_id', 'saled_seats_count', 'total_price', 'status'];
+	protected $fillable = ['user_id', 'coin_id', 'masternode_id', 'saled_seats_count', 'total_price', 'status'];
 
 	public function user()
 	{
 			return $this->belongsTo('App\User');
 	}
 
+	public function coin()
+	{
+			return $this->belongsTo('App\Coin');
+	}
+	
 	public function masternode()
 	{
 			return $this->belongsTo('App\Masternode');

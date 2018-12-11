@@ -92,7 +92,7 @@
         <div class="col-md-12 col-lg-6 col-xl-6">
           <section class="panel">
             <header class="panel-heading" style="background-color:#5355a9">
-              <h2 class="panel-title" style="color:#fff">Latest Transactions</h2>
+              <h2 class="panel-title" style="color:#fff">Latest Sales</h2>
             </header>
             <div class="panel-body">
               <div class="table-responsive">
@@ -100,51 +100,24 @@
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Type</th>
-                      <th>Coin Type</th>
                       <th>User</th>
+                      <th>Coin Type</th>
                       <th>Seats</th>
                       <th>Amount</th>
                       <th>Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- <tr>
-                      <td>15125125</td>
-                      <td>Sales</td>
-                      <td>ALQO (XLQ)</td>
-                      <td>AN7v8PqrmGncpkzYnpdfxwpFvXPKsrcUso</td>
-                      <td>5</td>
-                      <td>500</td>
-                      <td>2018-08-31</td>
-                    </tr>
-                    <tr>
-                      <td>15125124</td>
-                      <td>Reward</td>
-                      <td>Bitcoin Green (BITG)</td>
-                      <td>AN7v8PqrmGncpkzYnpdfxwpFvXPKsrcUso</td>
-                      <td>4</td>
-                      <td>400</td>
-                      <td>2018-08-28</td>
-                    </tr>
-                    <tr>
-                      <td>15125123</td>
-                      <td>Sales</td>
-                      <td>Digiwage (WAGE)</td>
-                      <td>AN7v8PqrmGncpkzYnpdfxwpFvXPKsrcUso</td>
-                      <td>3</td>
-                      <td>300</td>
-                      <td>2018-08-25</td>
-                    </tr>
-                    <tr>
-                      <td>15125122</td>
-                      <td>Reward</td>
-                      <td>Denarius (DNR)</td>
-                      <td>AN7v8PqrmGncpkzYnpdfxwpFvXPKsrcUso</td>
-                      <td>5</td>
-                      <td>500</td>
-                      <td>2018-08-18</td>
-                    </tr> -->
+                    @foreach ($sales as $sale)
+                      <tr>
+                        <td>@if (isset($sale->user->name)) {{$sale->user->name}} @endif</td>
+                        <td>@if (isset($sale->coin->coin_name)) {{$sale->coin->coin_name}} @endif</td>
+                        <td>{{$sale->sales_amount}}</td>
+                        <td>{{$sale->total_price}}</td>
+                        <td>{{$sale->sales_amount}}</td>
+                        <td>{{$sale->created_at}}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -154,38 +127,32 @@
         <div class="col-md-12 col-lg-6 col-xl-6">
           <section class="panel">
             <header class="panel-heading" style="background-color:#5355a9">
-              <h2 class="panel-title" style="color:#fff">Top Seat Owners</h2>
+              <h2 class="panel-title" style="color:#fff">Lastest Rewards</h2>
             </header>
             <div class="panel-body">
               <div class="table-responsive">
                 <table class="table mb-none">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Name</th>
-                      <th>Own Seat count</th>
+                      <th>Masternode ID</th>
+                      <th>Coin</th>
+                      <th>User</th>
+                      <th>Rewarded Type</th>
                       <th>Rewarded Amount</th>
+                      <th>Rewarded Date</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                      <td>105</td>
-                      <td>15,125$</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                      <td>88</td>
-                      <td>12,125$</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Larry</td>
-                      <td>70</td>
-                      <td>9,125$</td>
-                    </tr> -->
+                    @foreach ($rewards as $reward)
+                      <tr>
+                        <td>@if (isset($reward->masternode_id)) {{$reward->masternode_id}} @endif</td>
+                        <td>@if (isset($reward->masternode->coin->coin_name)) {{$reward->masternode->coin->coin_name}} @endif</td>
+                        <td>@if (isset($reward->user->name)) {{$reward->user->name}} @endif</td>
+                        <td>{{$reward->type}}</td>
+                        <td>{{$reward->reward_amount}}</td>
+                        <td>{{$reward->created_at}}</td>
+                      </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

@@ -27,7 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sales = Sale::where('status', 'completed')->get();
+        $sales = Sale::where('status', 'completed')->orderby('created_at', 'desc')->get();
         $rewards = Reward::where('status', 'completed')->get();
         $codeList = Paymentsetting::all();
         $payment_settings = [];
