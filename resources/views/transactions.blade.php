@@ -36,6 +36,7 @@
                             <td>{{$item->id}}</td>
                             <td>{{$item->type}}</td>
                             <td>@if (isset($item->user->name)) {{$item->user->name}} @endif</td>
+                            <td>@if (isset($item->coin->coin_name)) {{$item->coin->coin_name}} @endif</td>
                             <td>{{$item->amount}}</td>
                             <td>{{$item->from_address}}</td>
                             <td>{{$item->amount}}</td>
