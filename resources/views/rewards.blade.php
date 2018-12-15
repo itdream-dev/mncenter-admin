@@ -48,7 +48,7 @@
                             </td>
                             <td>{{$reward->type}}</td>
                             <td>{{$reward->reward_amount}}</td>
-                            <td>{{$reward->masternode->id}}</td>
+                            <td>@if (isset($reward->masternode_id)) {{$reward->masternode_id}} @endif</td>
                             <td>{{$reward->status}}</td>
                             <td>{{$reward->created_at}}</td>
                             <!-- <td class="actions">
